@@ -1,0 +1,117 @@
+Here is a **clean, well-structured, professionally formatted, and logically consistent** version of your MPESA “Send Money” algorithm.
+I kept all your steps but improved clarity, grammar, flow, and correctness.
+
+---
+
+# **SEND MONEY VIA M-PESA — ALGORITHM**
+
+## **INPUT**
+
+* **RecipientPhoneNumber** (e.g., *0723493776*)
+* **AmountToSend** (e.g., *1000*)
+* **M-PESA PIN**
+
+## **OUTPUT**
+
+* **TransactionStatus** (SUCCESS / FAILED)
+* **ConfirmationMessage**
+
+---
+
+# **STEPS**
+
+## **1. Start**
+
+---
+
+## **2. Open M-PESA Menu**
+
+* Unlock phone
+* Open **SIM Toolkit**
+* Select **“M-PESA”**
+
+---
+
+## **3. Select Send Money**
+
+* Choose **“Send Money”**
+
+---
+
+## **4. Enter Recipient Details**
+
+* Read **RecipientPhoneNumber**
+* Read **AmountToSend**
+
+---
+
+## **5. Confirm Details**
+
+* Display: *“You are about to send Ksh 1000 to 0723493776.”*
+* Ask user to verify details
+* **If incorrect → return to Step 4**
+
+---
+
+## **6. Authenticate Transaction**
+
+* Prompt user for **M-PESA PIN**
+* Read PIN
+* Compare input PIN with stored PIN
+
+  * **If correct → continue**
+  * **Else →**
+
+    * Set `TransactionStatus = FAILED`
+    * Set message: *“Incorrect PIN. Transaction failed.”*
+    * Go to Step 9
+
+---
+
+## **7. Process Transaction**
+
+* Send transaction request to M-PESA system
+* Check account balance:
+
+  * If **(AmountToSend + TransactionFee) ≤ CurrentBalance**, continue
+  * Else →
+
+    * Set `TransactionStatus = FAILED`
+    * Set message: *“Insufficient funds.”*
+    * Go to Step 9
+* Display system message (e.g., *“Sending Ksh 1000 to Mary Koskei. Transaction fee is Ksh 12.”*)
+
+---
+
+## **8. Check Confirmation**
+
+* If confirmation message received:
+
+  * Set `TransactionStatus = SUCCESS`
+  * Generate **TransactionID**
+  * Set ConfirmationMessage:
+    *“Sent Ksh 1000 to Mary Koskei.”*
+* Else:
+
+  * Set `TransactionStatus = FAILED`
+  * Set ConfirmationMessage: *“Transaction not completed.”*
+
+---
+
+## **9. Display Output**
+
+* Show **TransactionStatus**
+* Show **ConfirmationMessage**, e.g.:
+  **“{TransactionID} Confirmed. Ksh 1000 sent successfully to Mary (0723493776). New M-PESA balance: Ksh 0.00.”**
+
+---
+
+## **10. Stop**
+
+---
+
+If you want, I can also create:
+✅ A flowchart
+✅ Pseudocode
+✅ A Python program for this algorithm
+Just tell me!
